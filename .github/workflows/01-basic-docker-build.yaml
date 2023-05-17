@@ -42,5 +42,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }},${{ secrets.DOCKER_HUB_USERNAME }}/docker-ci-automation:latest,${{ secrets.DOCKER_HUB_USERNAME }}/docker-ci-automation:01
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }} 
