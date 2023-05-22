@@ -10,8 +10,11 @@ services:
     volumes:
       - ./healthchecks:/healthchecks
     healthcheck:
-      test: /healthchecks/postgres-healthcheck
-      interval: "5s"
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s 
   sut:
     image: "${TESTING_IMAGE}"
     depends_on:
