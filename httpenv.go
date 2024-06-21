@@ -14,7 +14,7 @@ func serve(w http.ResponseWriter, r *http.Request) {
   }
   bytes, err := json.Marshal(env)
   if err != nil {
-    w.Write([]byte("{}"))
+    w.Write([]byte("{error}"))
     return
   }
   w.Write([]byte(bytes))
